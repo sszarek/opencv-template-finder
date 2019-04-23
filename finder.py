@@ -1,7 +1,7 @@
 import sys
 import cv2 as cv
 import timeit
-import file_tools as ft
+from file_tools import assert_file_exists
 
 args = sys.argv[1:]
 
@@ -12,8 +12,8 @@ if len(args) < 2:
 img_path = args[0]
 template_path = args[1]
 
-ft.assert_file_exists(img_path)
-ft.assert_file_exists(template_path)
+assert_file_exists(img_path)
+assert_file_exists(template_path)
 
 img_rgb = cv.imread(img_path)
 img = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)
